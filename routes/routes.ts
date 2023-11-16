@@ -23,7 +23,7 @@ router.post("/about", async (req:Request, res:Response) => {
   const aboutParams: aboutParams = req.body;
   const data = await getMongoData(["education", "workExperience", "skills", "history"]);
   const prompt = createAboutPrompt({data, type:"about", ...aboutParams})
-  const text = generatePrompt(prompt);
+  const text = await generatePrompt(prompt, "about");
   res.send(text).status(200);
 });
 
@@ -31,7 +31,8 @@ router.post("/home", async (req:Request, res:Response) => {
   const aboutParams: aboutParams = req.body;
   const data = await getMongoData(["education", "workExperience", "skills", "history"]);
   const prompt = createAboutPrompt({data, type:"home", ...aboutParams})
-  res.send(prompt).status(200);
+  const words = await generatePrompt(prompt, "about");
+  res.send(words).status(200);
 });
 
 // // Fetches the latest posts

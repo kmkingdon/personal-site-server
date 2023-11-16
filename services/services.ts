@@ -39,18 +39,21 @@ export const getMongoData = async (type:collections[]) => {
     return results;
 };
 
-
-export const generatePrompt = async (prompt:string) => {
+type ResponseString = "text" | "json_object" | undefined
+type ResponseFormat = {
+    type: ResponseString;
+}
+export const generatePrompt = async (prompt:string, type: string) => {
     const configuration = {
-
         apiKey: process.env.OPENAI_API_KEY,
     };
-    console.log({key: process.env.OPENAI_API_KEY })
+    const format:ResponseFormat = type === 'about' ? { type: "text" } : { type: "json_object" };
     const openai = new OpenAI(configuration);
-
     const completion = await openai.chat.completions.create({
-        messages: [{ role: "system", content: prompt }],
+        messages: [{ role: "user", content: prompt }],
         model: "gpt-3.5-turbo",
+        response_format: format
     });
-    return completion;
+    const text = completion.choices[0].message.content
+    return text;
 }

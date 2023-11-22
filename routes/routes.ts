@@ -2,7 +2,7 @@ import express, {Request, Response} from "express";
 // @ts-ignore
 import { MONGO_COLLECTIONS, audienceCategories, skillsCategories, aboutParams } from "../common/common.ts";
 // @ts-ignore
-import { generatePrompt, getMongoData } from "../services/services.ts";
+import { generateImage, generatePrompt, getMongoData } from "../services/services.ts";
 // @ts-ignore
 import { createAboutPrompt } from "../utils/utils.ts";
 
@@ -32,7 +32,8 @@ router.post("/home", async (req:Request, res:Response) => {
   const data = await getMongoData(["education", "workExperience", "skills", "history"]);
   const prompt = createAboutPrompt({data, type:"home", ...aboutParams})
   const words = await generatePrompt(prompt, "about");
-  res.send(words).status(200);
+  const image =  await generateImage(words);
+  res.send({words, image}).status(200);
 });
 
 // // Fetches the latest posts

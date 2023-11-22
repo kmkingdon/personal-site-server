@@ -57,3 +57,18 @@ export const generatePrompt = async (prompt:string, type: string) => {
     const text = completion.choices[0].message.content
     return text;
 }
+
+export const generateImage= async (prompt:string|null) => {
+    const configuration = {
+        apiKey: process.env.OPENAI_API_KEY,
+    };
+    const openai = new OpenAI(configuration);
+    const finalPrompt = `In more abstracted or impressionistic style, without legible text, depict the ideas of these concepts: ${JSON.stringify(prompt)}`
+    const image = await openai.images.generate({
+        model: "dall-e-3",
+        prompt: finalPrompt || 'Software engineer, educator, artist',
+        n: 1,
+        size: "1024x1024",
+      });
+    return image;
+}

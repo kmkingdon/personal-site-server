@@ -2,12 +2,13 @@ export type audienceCategories = "Recruiter" | "Hiring Manager" | "Peer Collabor
 
 export type skillsCategories = "technical" | "softwareDelivery" | "peopleLeadership" | "education" | "community"
 
-export type collections = "workExperience" | "education" | "skills" | "history" 
+export type collections = "workExperience" | "education" | "skills" | "history" | "default"
 export const MONGO_COLLECTIONS: { [key: string]: collections; } = {
     EDUCATION: 'education',
     WORKEXPERIENCE: 'workExperience',
     SKILLS: 'skills',
-    HISTORY: 'history'
+    HISTORY: 'history',
+    DEFAULT: 'default'
 }
 
 export type aboutParams = {

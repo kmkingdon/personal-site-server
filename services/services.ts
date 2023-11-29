@@ -36,6 +36,14 @@ export const getMongoData = async (type:collections[]) => {
             results = Object.assign(results, historyResults[0]) 
         }
     }
+
+    if(type.includes(MONGO_COLLECTIONS.DEFAULT as collections)){
+        const defaultData = await db?.collection(MONGO_COLLECTIONS.DEFAULT);
+        let defaultResults = await defaultData?.find({}).toArray();
+        if(defaultResults){
+            results = Object.assign(results, defaultResults[0]) 
+        }
+    }
     return results;
 };
 

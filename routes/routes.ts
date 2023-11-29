@@ -19,6 +19,11 @@ router.get("/education", async (_req:Request, res:Response) => {
   res.send(results).status(200);
 });
 
+router.get("/default", async (_req:Request, res:Response) => {
+  let results = await getMongoData([MONGO_COLLECTIONS.DEFAULT]);
+  res.send(results).status(200);
+});
+
 router.post("/about", async (req:Request, res:Response) => {
   const aboutParams: aboutParams = req.body;
   const data = await getMongoData(["education", "workExperience", "skills", "history"]);

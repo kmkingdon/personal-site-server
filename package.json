@@ -4,11 +4,11 @@
     "main": "index.js",
     "type": "module",
     "scripts": {
-        "start": "ts-node index.js",
+        "start": "ts-node index.ts",
         "test": "echo \"Error: no test specified\" && exit 1",
         "lint": "eslint .",
         "format": "prettier --single-quote --check .",
-        "dev": "lsof -i :8000 -t | kill -9 xargs  | nodemon --exec 'ts-node-esm' index.js"
+        "dev": "lsof -i :8000 -t | kill -9 xargs  | nodemon --exec 'ts-node-esm' index.ts"
     },
     "dependencies": {
         "compression": "^1.7.4",

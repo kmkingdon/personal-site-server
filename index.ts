@@ -3,11 +3,11 @@ import compression from "compression"
 import cookieParser from "cookie-parser"
 import helmet from "helmet"
 import morgan from "morgan"
-
-import "./loadEnvironment.js";
-import "express-async-errors";
-import router from "./routes/routes.js";
 import cors from "cors";
+
+import "./loadEnvironment.ts";
+import router from "./routes/routes.ts";
+
 
 const PORT = process.env.PORT || 8000;
 const app = express();

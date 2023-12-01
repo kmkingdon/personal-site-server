@@ -12,7 +12,9 @@ import router from "./routes/routes.js";
 const PORT = process.env.PORT || 8000;
 const app = express();
 app.use(cors({
-  origin:['*']
+  origin:'*',
+  methods: ['POST', 'GET', 'PATCH', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
 app.use(compression())
 app.use(express.urlencoded({ extended: true }))

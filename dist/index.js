@@ -6,27 +6,23 @@ import morgan from "morgan";
 import cors from "cors";
 import "./loadEnvironment.js";
 import router from "./routes/routes.js";
-var PORT = process.env.PORT || 8000;
-var app = express();
+const PORT = process.env.PORT || 8000;
+const app = express();
 app.use(cors({
-    origin: [
-        "http://localhost:3000/",
-        "http://localhost:3001/",
-        "https://kmkingdon.info/"
-    ]
+    origin: '*',
+    methods: ['POST', 'GET', 'PATCH', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-type', 'Authorization', 'Origin', 'Access-Control-Allow-Origin', 'Accept', 'Options', 'X-Requested-With']
 }));
 app.use(compression());
-app.use(express.urlencoded({
-    extended: true
-}));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(helmet());
 app.use(cookieParser());
 app.use(morgan("dev"));
-app.use("/api", router);
+app.options('*', cors());
+app.use('/api', router);
 // start the Express server
-app.listen(PORT, function() {
-    console.log("Server is running on port: ".concat(PORT));
+app.listen(PORT, () => {
+    console.log(`Server is running on port: ${PORT}`);
 });
-
 //# sourceMappingURL=index.js.map

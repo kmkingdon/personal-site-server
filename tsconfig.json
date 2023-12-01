@@ -22,8 +22,6 @@
     "noImplicitReturns": true, /* Enable error reporting for codepaths that do not explicitly return in a function. */
     "noFallthroughCasesInSwitch": true, /* Enable error reporting for fallthrough cases in switch statements. */
     "skipLibCheck": true,
-    "allowImportingTsExtensions": true,
-    "noEmit": true,
     "allowJs": true,
   },
   "include":[

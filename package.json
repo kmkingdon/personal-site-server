@@ -4,11 +4,11 @@
     "main": "index.js",
     "type": "module",
     "scripts": {
-        "start": "ts-node index.ts",
+        "start": "ts-node --esm index.ts",
         "test": "echo \"Error: no test specified\" && exit 1",
         "lint": "eslint .",
         "format": "prettier --single-quote --check .",
-        "dev": "lsof -i :8000 -t | kill -9 xargs  | nodemon --exec 'ts-node-esm' index.ts"
+        "dev": "lsof -i :8000 -t | kill -9 xargs  | nodemon --exec 'ts-node-esm' index."
     },
     "dependencies": {
         "compression": "^1.7.4",
@@ -34,5 +34,9 @@
         "eslint": "^8.0.0",
         "nodemon": "^2.0.12",
         "prettier": "^2.4.1"
+    },
+    "engines" : { 
+        "npm" : ">=9.0.0 <10.0.0",
+        "node" : ">=18.0.0 <20.0.0"
     }
 }

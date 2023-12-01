@@ -11,7 +11,9 @@ import cors from "cors";
 
 const PORT = process.env.PORT || 8000;
 const app: Express = express();
-app.use(cors());
+app.use(cors({
+  origin: ['http://localhost:3000/', 'http://localhost:3001/', 'https://kmkingdon.info/']
+}));
 app.use(compression())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())

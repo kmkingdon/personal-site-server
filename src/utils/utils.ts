@@ -1,4 +1,4 @@
-import { aboutParams, skillsCategories } from "../common/common";
+import type { aboutParams, skillsCategories } from "../common/common.js";
 
 const parseDataToPrompt = (skills: string[], data:any):string => {
     const promptHistory =  `Use the following history JSON objects for details. History: ${JSON.stringify(data.history)}. `

@@ -1,7 +1,7 @@
 import { OpenAI } from "openai";
 
-import db from "../db/conn";
-import { MONGO_COLLECTIONS, collections } from "../common/common";
+import db from "../db/conn.js";
+import { MONGO_COLLECTIONS, type collections } from "../common/common.js";
 
 export const getMongoData = async (type:collections[]) => {
     let results:any={};

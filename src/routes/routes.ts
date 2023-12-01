@@ -1,7 +1,7 @@
-import express, {Request, Response} from "express";
-import { MONGO_COLLECTIONS, aboutParams } from "../common/common";
-import { generateImage, generatePrompt, getMongoData } from "../services/services";
-import { createAboutPrompt } from "../utils/utils";
+import express, {type Request, type Response} from "express";
+import { MONGO_COLLECTIONS, type aboutParams } from "../common/common.js";
+import { generateImage, generatePrompt, getMongoData } from "../services/services.js";
+import { createAboutPrompt } from "../utils/utils.js";
 
 
 const router = express.Router();

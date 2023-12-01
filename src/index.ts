@@ -12,7 +12,7 @@ import router from "./routes/routes.js";
 const PORT = process.env.PORT || 8000;
 const app = express();
 app.use(cors({
-  origin: ['http://localhost:3000/', 'http://localhost:3001/', 'https://kmkingdon.info/']
+  origin: ['http://localhost:3000/*', 'http://localhost:3001/*', 'https://kmkingdon.info/*']
 }));
 app.use(compression())
 app.use(express.urlencoded({ extended: true }))

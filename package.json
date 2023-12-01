@@ -4,7 +4,7 @@
     "main": "index.js",
     "type": "module",
     "scripts": {
-        "start": "node 'ts-node-esm' index.ts",
+        "start": "node index.ts",
         "test": "echo \"Error: no test specified\" && exit 1",
         "lint": "eslint .",
         "format": "prettier --single-quote --check .",

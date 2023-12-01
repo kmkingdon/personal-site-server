@@ -14,7 +14,7 @@ const app = express();
 app.use(cors({
   origin:'*',
   methods: ['POST', 'GET', 'PATCH', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization']
+  allowedHeaders: ['Content-type','Authorization','Origin','Access-Control-Allow-Origin','Accept','Options','X-Requested-With']
 }));
 app.use(compression())
 app.use(express.urlencoded({ extended: true }))

@@ -1,9 +1,9 @@
-import express from "express";
-import compression from "compression"
-import cookieParser from "cookie-parser"
-import helmet from "helmet"
-import morgan from "morgan"
-import cors from "cors";
+const express = require("express");
+const compression = require("compression");
+const cookieParser = require("cookieParser");
+const morgan = require("morgan");
+const cors = require("cors");
+import helmet from "helmet";
 
 import "./loadEnvironment.js";
 import router from "./routes/routes.js";

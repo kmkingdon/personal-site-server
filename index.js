@@ -1,4 +1,4 @@
-import express, { Express} from "express";
+import express from "express";
 import compression from "compression"
 import cookieParser from "cookie-parser"
 import helmet from "helmet"
@@ -10,7 +10,7 @@ import router from "./routes/routes.js";
 import cors from "cors";
 
 const PORT = process.env.PORT || 8000;
-const app: Express = express();
+const app = express();
 app.use(cors({
   origin: ['http://localhost:3000/', 'http://localhost:3001/', 'https://kmkingdon.info/']
 }));

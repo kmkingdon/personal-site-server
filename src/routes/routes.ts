@@ -1,5 +1,4 @@
-import {type Request, type Response} from "express";
-const express = require("express");
+import express, {type Request, type Response} from "express";
 import { MONGO_COLLECTIONS, type aboutParams } from "../common/common.js";
 import { generateImage, generatePrompt, getMongoData } from "../services/services.js";
 import { createAboutPrompt } from "../utils/utils.js";

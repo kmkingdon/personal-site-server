@@ -11,7 +11,9 @@ import router from "./routes/routes.js";
 
 const PORT = process.env.PORT || 8000;
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin:['*']
+}));
 app.use(compression())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())

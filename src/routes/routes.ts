@@ -2,9 +2,12 @@ import express, {type Request, type Response} from "express";
 import { MONGO_COLLECTIONS, type aboutParams } from "../common/common.js";
 import { generateImage, generatePrompt, getMongoData } from "../services/services.js";
 import { createAboutPrompt } from "../utils/utils.js";
+import cors from "cors";
 
 
 const router = express.Router();
+
+router.options('/', cors())
 
 router.get("/workExperience", async (_req:Request, res:Response) => {
   let results = await getMongoData([MONGO_COLLECTIONS.WORKEXPERIENCE]);

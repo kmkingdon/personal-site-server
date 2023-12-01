@@ -2,8 +2,8 @@
   "compilerOptions": {
     "pretty": true,
     "target": "EsNext",
-    "module": "CommonJS", /* Specify what module code is generated. */
-    "moduleResolution": "Node",
+    "module": "NodeNext", /* Specify what module code is generated. */
+    "moduleResolution": "NodeNext",
     "outDir": "dist",
     "sourceMap": true, /* Specify how TypeScript looks up a file from a given module specifier. */
     "importsNotUsedAsValues": "remove", /* Specify emit/checking behavior for imports that are only used for types. */

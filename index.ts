@@ -5,8 +5,8 @@ import helmet from "helmet"
 import morgan from "morgan"
 import cors from "cors";
 
-import "./loadEnvironment.ts";
-import router from "./routes/routes.ts";
+import "./loadEnvironment";
+import router from "./routes/routes";
 
 
 const PORT = process.env.PORT || 8000;

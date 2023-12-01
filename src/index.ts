@@ -1,4 +1,4 @@
-import express, {NextFunction, type Request, type Response} from "express";
+import express from "express";
 import compression from "compression";
 import cookieParser from "cookie-parser";
 import helmet from "helmet";
@@ -24,31 +24,7 @@ app.use(helmet())
 app.use(cookieParser())
 app.use(morgan("dev"))
 
-let requestCntr = 0;
-app.use((req, res, next) => {
-    let thisRequest = requestCntr++;
-    console.log(`${thisRequest}: ${req.method}, ${req.originalUrl}, `, req.headers);
-    // watch for end of theresponse
-    res.on('close', () => {
-        console.log(`${thisRequest}: close response, res.statusCode = ${res.statusCode}, outbound headers: `, res.getHeaders());
-    });
-    next();
-});
 
-const allowCrossDomain = function(req:Request, res:Response, next:NextFunction) {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
-  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With, Accept');
-
-  console.log('intercepting options')
-  // intercept OPTIONS method
-  if ('OPTIONS' == req.method) {
-      res.send(200);
-  } else {
-      next();
-  }
-};
-app.use(allowCrossDomain);
 app.options('*', cors()); 
 
 app.use('/api', router);

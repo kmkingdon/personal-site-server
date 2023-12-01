@@ -47,8 +47,8 @@ export const createAboutPrompt = (params: aboutParams & {type: string, data:any}
     const personal = audience === 'Friend and Family';
 
     const promptStart = type === "about" ?
-        `Can you create a summary section for Kevin Kingdon's ${personal ? 'personal blog' : 'professional website'} About page. It should be a couple of paragraphs in form ` :
-        "Can you list three single or double word phrases that would summarize Kevin Kingdon. The phrases should be no longer than three words. Please return only the word and no additional explanation."
+        `Can you create a summary section for Kevin Kingdon's ${personal ? 'personal blog' : 'professional website'} About page. It should be a couple of paragraphs in form and not include a title ` :
+        "Can you make three single or double word phrases that would summarize Kevin Kingdon. The phrases should be no longer than three words. Please return only the word and no additional explanation."
     const promptAudience = audience.length ? `With the intended audience of ${audience}. ` : `Write it for a general audience. `;
     const promptData = parseDataToPrompt(skills, data);
     const promptComments = comments.length ? `Finally, also try to answer or address the following: ${comments}. ` : ' ';

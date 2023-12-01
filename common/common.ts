@@ -15,5 +15,5 @@ export type aboutParams = {
     audience: audienceCategories;
     skills: skillsCategories[];
     comments: string;
-  }
+}
   

@@ -12,7 +12,7 @@ import router from "./routes/routes.js";
 const PORT = process.env.PORT || 8000;
 const app = express();
 app.use(cors({
-  origin:'*',
+  origin:['http://localhost:3001/*'],
   methods: ['POST', 'GET', 'PATCH', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-type','Authorization','Origin','Access-Control-Allow-Origin','Accept','Options','X-Requested-With']
 }));

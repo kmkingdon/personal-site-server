@@ -19,9 +19,9 @@ app.use(express.json());
 app.use(helmet());
 app.use(cookieParser());
 app.use(morgan("dev"));
-// app.use((req:Request) => {
-//   console.log({req, headers: req.headers, creds: req.credentials})
-// })
+app.use((req) => {
+    console.log({ req, headers: req.headers, creds: req.credentials });
+});
 app.options('*', cors());
 app.use('/api', router);
 // start the Express server

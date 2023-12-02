@@ -9,7 +9,7 @@ import router from "./routes/routes.js";
 const PORT = process.env.PORT || 8000;
 const app = express();
 app.use(cors({
-    origin: 'http://localhost:3001',
+    origin: ["https://www.kmkingdon.info/", "https://kmkingdon.info/", "http://localhost:3001"],
     methods: ['POST', 'GET', 'OPTIONS'],
     allowedHeaders: ['Content-type']
 }));

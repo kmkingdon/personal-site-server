@@ -12,7 +12,7 @@ import router from "./routes/routes.js";
 const PORT = process.env.PORT || 8000;
 const app = express();
 app.use(cors({
-  origin:['http://localhost:3001/*'],
+  origin:['*'],
   methods: ['POST', 'GET', 'PATCH', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-type','Authorization','Origin','Access-Control-Allow-Origin','Accept','Options','X-Requested-With']
 }));
@@ -23,6 +23,10 @@ app.use(express.json())
 app.use(helmet())
 app.use(cookieParser())
 app.use(morgan("dev"))
+
+app.use((req:Request) => {
+  console.log({req, headers: req.headers, creds: req.credentials})
+})
 
 
 app.options('*', cors()); 

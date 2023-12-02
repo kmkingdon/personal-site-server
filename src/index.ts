@@ -11,6 +11,11 @@ import router from "./routes/routes.js";
 
 const PORT = process.env.PORT || 8000;
 const app = express();
+
+app.use((req:Request) => {
+  console.log({req, headers: req.headers, creds: req.credentials})
+})
+
 app.use(cors({
   origin:["https://www.kmkingdon.info/", "https://kmkingdon.info/", "http://localhost:3001"],
   methods: ['POST', 'GET', 'OPTIONS'],
@@ -23,10 +28,6 @@ app.use(express.json())
 app.use(helmet())
 app.use(cookieParser())
 app.use(morgan("dev"))
-
-app.use((req:Request) => {
-  console.log({req, headers: req.headers, creds: req.credentials})
-})
 
 
 app.options('*', cors()); 
